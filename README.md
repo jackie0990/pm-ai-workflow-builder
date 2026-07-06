@@ -1,32 +1,71 @@
-# React + TypeScript + Vite
+# PM AI Workflow Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+PM AI Workflow Builder is a lightweight product demo that helps product managers and AI power users turn repeated AI-assisted work into reusable prompts, skills, and workflow templates.
 
-Currently, two official plugins are available:
+## Why This Exists
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Many knowledge workers use AI repeatedly for similar tasks, such as:
 
-## React Compiler
+- Reviewing PRDs
+- Writing weekly updates
+- Summarizing interview feedback
+- Analyzing user feedback
+- Drafting emails
+- Comparing options and making decisions
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+However, these AI workflows are often one-off. Users need to explain the same context again and again, recreate prompts, and manually adjust output formats.
 
-## Expanding the Oxlint configuration
+This project explores a simple idea:
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+> Repeated AI work should become reusable workflow assets.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+## What It Does
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+The MVP allows users to:
+
+1. Paste recent AI-assisted workflow records
+2. Analyze each task with a rule-based workflow classifier
+3. Categorize tasks into common PM workflow types
+4. Recommend whether each task should become a Skill, Prompt Template, Automation, or Human Review process
+5. Generate a reusable Skill template in Markdown
+
+## Live Demo
+
+The project is deployed with GitHub Pages:
+
+https://jackie0990.github.io/pm-ai-workflow-builder/
+
+## Core Concept
+
+The product classifies repeated AI-assisted work into four recommended action types:
+
+| Action | Meaning |
+|---|---|
+| Skill | A repeatable task with stable reasoning steps that can become a reusable AI skill |
+| Prompt Template | A task that can be captured as a reusable prompt |
+| Automation | A recurring or fixed-format task that may be automated |
+| Human Review | A task where AI can assist, but humans should make the final decision |
+
+## Workflow Categories
+
+| Category | Examples |
+|---|---|
+| PM Document | PRD review, project updates, product planning |
+| Communication | Emails, replies, stakeholder communication |
+| Decision Analysis | Comparison, judgment, purchase or product decisions |
+| User Feedback | Feedback analysis, pain point extraction |
+| Interview Evaluation | Candidate feedback and hiring notes |
+| General | Other workflow records |
+
+## How It Works
+
+```text
+User input
+  ↓
+Rule-based analysis
+  ↓
+Workflow Map
+  ↓
+Select a workflow
+  ↓
+Generate reusable Skill template
